@@ -21,6 +21,8 @@ class SliderCarousel {
           'Slider carousel: Necessary to add 2 options, "main" and "wrap" !'
         );
       }
+      console.log(typeof wrap);
+      console.log(document.querySelector(main))
       this.main = document.querySelector(main);
       this.wrap = document.querySelector(wrap);
       this.slides = document.querySelector(wrap).children;
@@ -84,7 +86,7 @@ class SliderCarousel {
         for (let i = 0; i < this.slides.length; i++) {
           const dot = document.createElement("div");
           dot.classList.add("button_wrapper");
-          dot.innerHTML = '<div class="slider_btn"></div>'
+          dot.innerHTML = '<div class="slider_btn"></div>';
           this.pagination.appendChild(dot);
   
           if (i == 0) {
@@ -117,9 +119,9 @@ class SliderCarousel {
   
     currentDot(index) {
       for (let dot of this.dotArray) {
-        dot.classList.remove("dot_active");
+        dot.classList.remove("active");
       }
-      this.dotArray[index].classList.add("dot_active");
+      this.dotArray[index].classList.add("active");
     }
   
     prevSlider() {
