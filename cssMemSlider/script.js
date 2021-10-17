@@ -5,10 +5,19 @@
 
 // let viewport = document.getElementById("wrapper").offsetWidth;
 
+const memTextMas = [
+    "I had fun once. It was awful",
+    "What if this planet is a reality TV show for other planets",
+    "There is nothing to eat in this damn house!",
+    "Me getting ready in this morning.",
+    "That moment you make eye contact whith another cowoker while walking down the hall.",
+]
+
 class SliderCarousel {
     constructor({
       main,
       wrap,
+      text,
       prev,
       next,
       pagination,
@@ -21,10 +30,9 @@ class SliderCarousel {
           'Slider carousel: Necessary to add 2 options, "main" and "wrap" !'
         );
       }
-      console.log(typeof wrap);
-      console.log(document.querySelector(main))
       this.main = document.querySelector(main);
       this.wrap = document.querySelector(wrap);
+      this.text = document.querySelector(text);
       this.slides = document.querySelector(wrap).children;
       this.prev = document.querySelector(prev);
       this.next = document.querySelector(next);
@@ -34,7 +42,9 @@ class SliderCarousel {
         position,
         infinity,
         widthSlide: 100,
-        maxPosition: this.slides.length - this.slidesToShow
+        maxPosition: this.slides.length - this.slidesToShow,
+        firstSlide:this.slides[0],
+        lastSlide:this.slides[this.slides.length-1],
       };
     }
   
@@ -60,7 +70,7 @@ class SliderCarousel {
     }
   
     addStyle() {
-      const style = document.createElement("style");
+      const style = document.createElement("style");/////////////////////
       style.id = "sliderCarousel-style";
       style.textContent = `
               .glo-slider {
@@ -68,7 +78,6 @@ class SliderCarousel {
                   
               }
               .glo-slider__wrap {
-                 
                   transition: transform 0.5s;
                  
               }
@@ -111,8 +120,9 @@ class SliderCarousel {
     }
   
     currentSlide(index) {
+      this.text.innerHTML = memTextMas[this.options.position];
       this.wrap.style.transform = `translateX(-${
-        index * this.options.widthSlide
+        (index) * this.options.widthSlide
       }%)`;
       this.currentDot(index);
     }
@@ -125,23 +135,60 @@ class SliderCarousel {
     }
   
     prevSlider() {
-      if (this.options.infinity || this.options.position > 0) {
-        --this.options.position;
-  
-        if (this.options.position < 0) {
-          this.options.position = this.options.maxPosition;
+        if (this.options.infinity || this.options.position > 0) {
+          --this.options.position;
+    
+          if (this.options.position < 0) {
+            this.options.position = this.options.maxPosition;
+          }
+    
+          console.log(this.options.position);
+          if (this.dotArray) {
+            this.currentDot(this.options.position);
+          }
+          this.text.innerHTML = memTextMas[this.options.position];
+          this.wrap.style.transform = `translateX(-${
+            this.options.position * this.options.widthSlide
+          }%)`;
         }
-  
-        console.log(this.options.position);
-        if (this.dotArray) {
-          this.currentDot(this.options.position);
-        }
-  
-        this.wrap.style.transform = `translateX(-${
-          this.options.position * this.options.widthSlide
-        }%)`;
-      }
     }
+
+        // --this.options.position;
+        // this.wrap.style.transform = `translateX(-${
+        //     -(this.options.position + 1) * this.options.widthSlide
+        //     }%)`;    
+        //     console.log(-(this.options.position + 1) * this.options.widthSlide);
+        //     console.log(this.options.position);
+
+        // if (this.options.position < 0) {
+        //     this.wrap.style.transition = "transform 0s";
+        //     this.slides[0].offsetParent;
+        //     console.log(this.options.maxPosition)
+            
+        //     this.wrap.style.transform = `translateX(-500%)`;
+        //     console.log(-(this.options.maxPosition) * this.options.widthSlide);
+        //         this.wrap.style.transition = "transform 0.5s";
+        //     this.options.position = this.options.maxPosition;           
+        //   }
+            // this.wrap.style.transition = "transform 0.5s;";
+            // this.wrap.style.transform = `translateX(-${
+            // this.options.position * this.options.widthSlide
+            // }%)`;                
+
+    //   if (this.options.infinity || this.options.position > 0) {
+        
+  
+        
+  
+    //     console.log(this.options.position);
+    //     if (this.dotArray) {
+    //       this.currentDot(this.options.position);
+    //     }
+  
+    //     this.wrap.style.transform = `translateX(-${
+    //       this.options.position * this.options.widthSlide
+    //     }%)`;
+    //   }
   
     nextSlider() {
       if (
@@ -157,7 +204,7 @@ class SliderCarousel {
         if (this.dotArray) {
           this.currentDot(this.options.position);
         }
-  
+        this.text.innerHTML = memTextMas[this.options.position];
         this.wrap.style.transform = `translateX(-${
           this.options.position * this.options.widthSlide
         }%)`;
@@ -211,6 +258,7 @@ class SliderCarousel {
       {
           main:".slider",
           wrap:".slider_track",
+          text:".content_text",
           prev:".prev_arrow",
           next:".next_arrow",
           pagination:".slider_btns",

@@ -126,7 +126,8 @@ img{
     .content_text{
         width: 100%;
         margin-bottom: 10px;
-        order:2
+        order:2;
+        font-size:14px;
     }
 
     .slider{
