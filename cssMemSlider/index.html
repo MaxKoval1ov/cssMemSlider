@@ -14,22 +14,30 @@
 <body>
     <div class="wrapper">
         <div class="slider">
-            <div class="slider_track">
-                <div class="slide"><img src="./assets/doggy.jpeg" alt="smth got wrong"></div>
-                <div class="slide"><img src="./assets/excitedCat.jpeg" alt="smth got wrong"></div>
-                <div class="slide"><img src="./assets/fatCat.jpg" alt="smth got wrong"></div>
-                <div class="slide"><img src="./assets/sadCat.jpeg" alt="smth got wrong"></div>
-                <div class="slide"><img src="./assets/cat.jpg" alt="smth got wrong"></div>
-            </div>
-            <div class="prev_arrow"></div>
-            <div class="next_arrow"></div>
-        </div>
+                <input class = "slide" name = "slide" type = "radio" id = "slide1" checked></input>
+                <input class = "slide" name = "slide" type = "radio" id = "slide2"></input>
+                <input class = "slide" name = "slide" type = "radio" id = "slide3"></input>
+                <input class = "slide" name = "slide" type = "radio" id = "slide4"></input>
+                <input class = "slide" name = "slide" type = "radio" id = "slide5"></input>
+                <div class="slides">
+                    <div class="slide_display"></div>
+                </div>
         <div class="content">
-            <div class="content_text">I had fun once. It was awful</div>
+            <div class="content_text">
+                <h2 class = "text">I had fun once. It was awful</h2>
+                <h2 class = "text">What if this planet is a reality TV show for other planets</h2>
+                <h2 class = "text">There is nothing to eat in this damn house!</h2>
+                <h2 class = "text">Me getting ready in this morning.</h2>
+                <h2 class = "text">That moment you make eye contact with another cowoker while walking down the hall.</h2>
+            </div>
             <nav class="slider_btns">
+                <label class = "slider_btn" for="slide1"></label>
+                <label class = "slider_btn" for="slide2"></label>
+                <label class = "slider_btn" for="slide3"></label>
+                <label class = "slider_btn" for="slide4"></label>
+                <label class = "slider_btn" for="slide5"></label>
             </nav>
         </div>
     </div>
-    <script src="./script.js"></script>
 </body>
 </html>
