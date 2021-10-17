@@ -120,7 +120,10 @@ class SliderCarousel {
     }
   
     currentSlide(index) {
-      this.text.innerHTML = memTextMas[this.options.position];
+        this.text.innerHTML = memTextMas[this.options.position];
+        this.text.classList.remove("run-animation");
+        void this.text.offsetWidth;
+        this.text.classList.add("run-animation");
       this.wrap.style.transform = `translateX(-${
         (index) * this.options.widthSlide
       }%)`;
@@ -147,6 +150,9 @@ class SliderCarousel {
             this.currentDot(this.options.position);
           }
           this.text.innerHTML = memTextMas[this.options.position];
+            this.text.classList.remove("run-animation");
+            void this.text.offsetWidth;
+            this.text.classList.add("run-animation");
           this.wrap.style.transform = `translateX(-${
             this.options.position * this.options.widthSlide
           }%)`;
@@ -205,6 +211,9 @@ class SliderCarousel {
           this.currentDot(this.options.position);
         }
         this.text.innerHTML = memTextMas[this.options.position];
+        this.text.classList.remove("run-animation");
+        void this.text.offsetWidth;
+        this.text.classList.add("run-animation");
         this.wrap.style.transform = `translateX(-${
           this.options.position * this.options.widthSlide
         }%)`;

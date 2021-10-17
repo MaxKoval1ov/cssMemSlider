@@ -60,6 +60,14 @@ img{
     font-size: 20px;
 }
 
+.run-animation {
+    animation: my-animation 2s both;
+  }
+  @keyframes my-animation {
+    0% { opacity:0; }
+    100% { opacity:1; }
+  }
+
 .button_wrapper{
     cursor: pointer;
     width: 22px;
