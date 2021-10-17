@@ -221,6 +221,7 @@ body{
         align-items: center;
         margin-top: 10px;
         row-gap: 10px;
+        height: 10vh;
     }
 
     .text{
