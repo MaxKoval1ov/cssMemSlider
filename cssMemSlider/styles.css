@@ -73,6 +73,15 @@ body{
     justify-content: center;
 }
 
+.btns_wrapper{
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 .slider_btn{
     width: 10px;
     height: 10px;
@@ -81,12 +90,12 @@ body{
     border-radius: 100%;
 }
 
-.slider_btn:hover{
+.btns_wrapper:hover .slider_btn{
     background-color:rgb(181, 225, 255);
     border-color: rgb(181, 225, 255);
 }
 
-.slider_btn:active{
+.btns_wrapper:active .slider_btn{
     background-color: transparent;
 }
 
@@ -136,7 +145,7 @@ body{
     display: block;
 }
 
-#slide1:checked ~ .content .slider_btns .slider_btn:nth-child(1){
+#slide1:checked ~ .content .slider_btns .btns_wrapper:nth-child(1) .slider_btn{
     background-color: transparent;
 }
 
@@ -154,7 +163,7 @@ body{
     display: block;
 }
 
-#slide2:checked ~ .content .slider_btns .slider_btn:nth-child(2){
+#slide2:checked ~ .content .slider_btns .btns_wrapper:nth-child(2) .slider_btn{
     background-color: transparent;
 }
 
@@ -172,7 +181,7 @@ body{
     display: block;
 }
 
-#slide3:checked ~ .content .slider_btns .slider_btn:nth-child(3){
+#slide3:checked ~ .content .slider_btns .btns_wrapper:nth-child(3) .slider_btn{
     background-color: transparent;
 }
 
@@ -191,7 +200,7 @@ body{
     display: block;
 }
 
-#slide4:checked ~ .content .slider_btns .slider_btn:nth-child(4){
+#slide4:checked ~ .content .slider_btns .btns_wrapper:nth-child(4) .slider_btn{
     background-color: transparent;
 }
 
@@ -210,7 +219,7 @@ body{
     display: block;
 }
 
-#slide5:checked ~ .content .slider_btns .slider_btn:nth-child(5){
+#slide5:checked ~ .content .slider_btns .btns_wrapper:nth-child(5) .slider_btn{
     background-color: transparent;
 }
 
